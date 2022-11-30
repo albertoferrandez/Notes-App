@@ -53,7 +53,6 @@ const TaskList = () => {
                 </div>
               </FormHeader>
               <NoteDescription>{tareas.description}</NoteDescription>
-              <p>{new Date().toLocaleString()}</p>
             </Note>
           ))
         }
