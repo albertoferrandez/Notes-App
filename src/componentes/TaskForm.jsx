@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux"
 import { addTask } from "../tasks/taskSlice"
 import { v4 as uuid } from 'uuid'
 import { ModalForm, FormHeader, Textarea, Form, Input } from "../StyleComp/ModalForm"
-import { Button } from "../StyleComp/Buttons"
 import { AiOutlineCloseCircle, AiOutlineSave } from "react-icons/ai";
 import { IconContext } from "react-icons"
 
@@ -46,10 +45,10 @@ const TaskForm = ({ closeModal }) => {
             onChange={handleChange}
             required 
           />
+
           <IconContext.Provider  value={{ className: "icon" }}>
             <button><AiOutlineSave size={34}/></button>
           </IconContext.Provider>
-          
         </Form>
     </ModalForm>
   )

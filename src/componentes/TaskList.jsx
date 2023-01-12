@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Button } from "../StyleComp/Buttons";
 import { MainNotes, Container, Note, NoteTitle, NoteDescription } from "../StyleComp/MainNotes";
 import { Form, FormHeader, Input, ModalForm, Textarea } from "../StyleComp/ModalForm";
 import { deleteTask, updateTask } from "../tasks/taskSlice";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { AiOutlineCloseCircle, AiOutlineSave } from "react-icons/ai";
 
 const TaskList = () => {
 
@@ -46,10 +46,10 @@ const TaskList = () => {
               <FormHeader>
                 <NoteTitle>{tareas.title}</NoteTitle>
                 <div>
-                <IconContext.Provider value={{ className: "icon" }}>
-                  <MdDeleteForever size={24} onClick={() => handleDelete(tareas.id)}/>
-                  <MdEdit size={24} onClick={() => handleTasktoEdit(tareas.id)} />
-                </IconContext.Provider>
+                  <IconContext.Provider value={{ className: "icon" }}>
+                    <MdDeleteForever size={24} onClick={() => handleDelete(tareas.id)} />
+                    <MdEdit size={24} onClick={() => handleTasktoEdit(tareas.id)} />
+                  </IconContext.Provider>
                 </div>
               </FormHeader>
               <NoteDescription>{tareas.description}</NoteDescription>
@@ -63,10 +63,14 @@ const TaskList = () => {
             <Form onSubmit={handleEdit}>
               <FormHeader>
                 <Input type="text" name="title" placeholder="titulo" value={task.title} onChange={handleChange} />
-                <Button onClick={() => { setModal(false) }}> x </Button>
+                <IconContext.Provider value={{ className: "icon" }}>
+                  <AiOutlineCloseCircle size={34} onClick={() => { setModal(false) }} />
+                </IconContext.Provider>
               </FormHeader>
               <Textarea name="description" placeholder="description" value={task.description} onChange={handleChange} />
-              <Button>Guardar</Button>
+              <IconContext.Provider value={{ className: "icon" }}>
+                <button><AiOutlineSave size={34} /></button>
+              </IconContext.Provider>
             </Form>
           </ModalForm>
         }
@@ -76,3 +80,4 @@ const TaskList = () => {
 }
 
 export default TaskList
+

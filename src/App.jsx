@@ -11,7 +11,7 @@ const App = () => {
         <LayoutTheme>
             <Layout>
                 <TopNav />
-                <TaskList />
+                    <TaskList />
                 <Footer />
             </Layout>
         </LayoutTheme>
